@@ -1,1 +1,36 @@
-welcome
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>TODO List</h1>
+        <section>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Description</th>
+                        <th>Completed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="todo: ${todoItems}">
+                        <td th:text="${todo.id}">Id</td>
+                        <td th:text="${todo.description}">Description</td>
+                        <td><input type="checkbox" th:checked="${todo.completed} == true" /></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+    </div>
+</body>
+
+</html>
