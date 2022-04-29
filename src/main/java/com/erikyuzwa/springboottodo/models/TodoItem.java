@@ -4,14 +4,9 @@ import java.io.Serializable;
 import java.time.Instant;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -40,11 +35,5 @@ public class TodoItem implements Serializable {
     @Getter
     @Setter
     private Instant dateModified = Instant.now();
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "todoList_id", nullable = false)
-    @Setter
-    @JsonIgnore
-    private TodoList todoList;
 
 }
